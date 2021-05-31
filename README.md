@@ -1,18 +1,18 @@
 ### Overview
-This NLP project use 2-layer neural network to classify 17 possible framing used in Congress tweets. For classification purposes, the neural network requires information of . Inputs for the model take the following format:
-![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/project/final.png?raw=tru)
+This NLP project use 2-layer neural network to classify 17 possible framing used in Congress tweets. Inputs for the model take the following format:
+![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/example.png?raw=tru)
 
 - Framing comprises a set of concepts and theoretical perspectives on how individuals, groups, and societies organize, perceive, and communicate about reality. In reality, politicians carefully choose framing to place their dicussion of social affairs so public opinion can be guided in desired direction.
 
 Back to the project, there are two working versions of the project in this repository: **a baseline model for comparison (in `base` folder)** and **an improved version (in `project` folder) of the model**. Both models complete the same task:
 - Train the neural network with the first 900 labeled tweets in `train.csv` and test its performance by labeling the 900th~1200th tweets in `train.csv`. Tweets are stored in `train.csv` in the following format:
-![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/project/final.png?raw=tru)
+![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/example2.png?raw=tru)
 - After training is done, predict framings for tweets in `test_proj.csv` and print the results in `test_proj.csv`. Tweets in `test_proj.csv` are stored in the same format as `train.csv` with only the `label` column left blank.
 
 Different from the** baseline model**, before the **improved model** starts to play with the labeled tweets in `train.csv`, it pretrains the model with tweets retrieved from `congresstweet` git repository for which **not the exact label but the possibilities for all 17 categories are known**. Intuitively, this pretraining stage would provides the improved model nothing but a head start so it converges faster. In practice, however, the improved model shows a 10% increase in accuracy than the baseline model. 
 
 Here is an example tweet retrieved from `congresstweet` repository.
-![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/project/final.png?raw=tru)
+![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/example3.png?raw=tru)
 
 Both models are written with Pytorch library.
 ### Run the code
