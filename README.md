@@ -9,7 +9,7 @@ Back to the project, there are two working versions of the project in this repos
 ![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/example2.png?raw=tru)
 - After training is done, predict framings for tweets in `test_proj.csv` and print the results in `test_proj.csv`. Tweets in `test_proj.csv` are stored in the same format as `train.csv` with only the `label` column left blank.
 
-Different from the** baseline model**, before the **improved model** starts to play with the labeled tweets in `train.csv`, it pretrains the model with tweets retrieved from `congresstweet` git repository for which **not the exact label but the possibilities for all 17 categories are known**. Intuitively, this pretraining stage would provides the improved model nothing but a head start so it converges faster. In practice, however, the improved model shows a 10% increase in accuracy than the baseline model. 
+Different from the **baseline model**, before the **improved model** starts to play with the labeled tweets in `train.csv`, it pretrains the model with tweets retrieved from `congresstweet` git repository for which **not the exact label but the possibilities for all 17 categories are known**. Intuitively, this pretraining stage would provides the improved model nothing but a head start so it converges faster. In practice, however, the improved model shows a 10% increase in accuracy than the baseline model. 
 
 Here is an example tweet retrieved from `congresstweet` repository.
 ![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/example3.png?raw=tru)
