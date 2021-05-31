@@ -1,5 +1,5 @@
 ### Overview
-This NLP project use 2-layer neural network to classify 17 possible framing used in Congress tweets. Inputs for the model take the following format:
+This NLP project use a 2-layer neural network to classify 17 possible **framing** used in Congress tweets. Inputs for the model take the following format:
 ![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/example.png?raw=tru)
 
 - Framing comprises a set of concepts and theoretical perspectives on how individuals, groups, and societies organize, perceive, and communicate about reality. In reality, politicians carefully choose framing to place their dicussion of social affairs so public opinion can be guided in desired direction.
