@@ -100,6 +100,8 @@ def representation(file, start, end):
     Saves the model in "FNN_2.pt".
     """
     df = pd.read_csv(file)
+    print(df)
+    sys.exit()
     twitters = df.text[start:end]
     vocabulary = list()
     sb = SnowballStemmer("english")
