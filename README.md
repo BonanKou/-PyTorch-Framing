@@ -1,4 +1,4 @@
-###Overview
+### Overview
 This NLP project use 2-layer neural network to classify 17 possible framing used in Congress tweets. For classification purposes, the neural network requires information of . Inputs for the model take the following format:
 ![](https://github.com/BonanKou/-PyTorch-Framing/blob/master/project/final.png?raw=tru)
 
@@ -38,7 +38,7 @@ cd project
 python save.py
 ```
 
-###Archetecture, explained
+### Archetecture, explained
 
 #### Model input
 
@@ -68,13 +68,13 @@ There are two **linear layers** inside this neural network model.
 - Since there are 17 possible framings for model to pick from, the second layer outputs a 17-bit tensor with value at each bit representing the possiblity of the tweet belonging one particular category.
 
 #### Training
-#####Expected output
+##### Expected output
 An ideal model predicts the correct result without any hesitation. So we train the model with an expected output for a tweet with a known framing would be a 17-bit one-hot vector with only 1 bit set to 1 and all others to 0. This means our model is 100% sure a particular framing is used instead of the others.
 In the improved model, we cannot build such an one-hot vector in the first training stage because we don't know what framing is used in tweets retrieved from `congresstweet` repository. Luckily, a paper from *https://www.aclweb.org/anthology/P17-1069.pdf*  shows distributions over 17 framing for tweets concerning one of the 6 issues. Instead of an one-hot vector, the 17-bit target tensor is now comprised of possibilities for each framing. For example, expected output for a tweet concerning `issue` **guns** will be:
 - *[7.094596448545265e-23, 1.42498778922372e-21, ..., 3.873518413222867e-21]*
 , where value at the ith index is the **softmaxed possibility** of a tweet concerning **guns** belonging to the ith category of framing.
 
-#####One step in training
+##### One step in training
 All tweet inputs and their expected outputs are stored in a self-defined `Dataset()` object that inherits `Dataset()` interface in `torch.utils.data` library. This library also provides a `DataLoader()` object that feeds the model with a batch of input/output pairs in each step of the training. The neural network udpates its internal state to minimize difference from the output to the expected output, or **loss**. When the target output is an one-hot vector, a `CrossEntropyLoss()` function is used to calculate loss. When the target output is a vector of possibilities, I used `MSELoss()` instead.
 
 Training parameters:
@@ -83,6 +83,6 @@ Training parameters:
 | ------------- | ------------- | ------------- | ------------- |
 |50 | 46 for improved model, 25 for baseline model|0.001 |0.0001|
 
-###Referrence
+### Referrence
 - `congresstweet` repository: https://github.com/alexlitel/congresstweets/tree/master/data
 
